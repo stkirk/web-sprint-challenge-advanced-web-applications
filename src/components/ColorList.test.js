@@ -23,10 +23,14 @@ test("Renders a list of colors without errors", () => {
 });
 
 test("Renders the EditForm when editing = true and does not render EditForm when editing = false", () => {
-  render(<ColorList colors={fakeColors} editing={true} />);
+  const { rerender } = render(<ColorList colors={fakeColors} editing={true} />);
 
-  const editForm = screen.getByTestId("edit_menu");
+  let editForm = screen.getByTestId("edit_menu");
 
   expect(editForm).toBeInTheDocument();
   expect(editForm).toBeVisible();
+
+  rerender(<ColorList colors={fakeColors} editing={false} />);
+  editForm = screen.queryByTestId("edit_menu");
+  expect(editForm).not.toBeInTheDocument();
 });
