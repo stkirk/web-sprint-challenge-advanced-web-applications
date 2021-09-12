@@ -44,7 +44,7 @@ const Login = () => {
 
   return (
     <div>
-      <h1>Welcome to the Bubble App!</h1>
+      <h1>Welcome to the Bubble App!!</h1>
       <div data-testid="loginForm" className="login-form">
         <h2>Build login form here</h2>
       </div>
