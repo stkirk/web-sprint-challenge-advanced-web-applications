@@ -1,11 +1,11 @@
 import axiosWithAuth from "../helpers/axiosWithAuth";
 
-const fetchColorService = (setter) => {
-  axiosWithAuth()
+const fetchColorService = () => {
+  return axiosWithAuth()
     .get("/colors")
     .then((res) => {
       console.log("Colors get res: ", res);
-      setter(res.data);
+      return res.data;
     })
     .catch((err) => {
       console.log("Colors get err: ", err);
